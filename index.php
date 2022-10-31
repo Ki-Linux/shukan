@@ -16,8 +16,23 @@
         <button>すでに登録済みの方</button>
     </div>
     <?php
-        $score = 80;
-        echo $score; 
+        class Robot {
+            private $name = '';//privateは外部からのアクセスを全て遮断
+            public function setName($name) {
+                $this->name = (string)filter_var($name);
+            }
+            public function getName() {
+                return $this->name;
+            }
+        }
+
+        $a = new Robot;
+        $a->setName('ロボ太郎');
+        $b = new Robot;
+        $b->setName('ロボ太郎');
+
+        echo $a->getName();
+        echo $b->getName();
     ?>
 </div>
 </body>
