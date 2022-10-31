@@ -18,6 +18,9 @@
     <?php
         class Robot {
             private $name = '';//privateは外部からのアクセスを全て遮断
+            public function __construct($name) {
+                $this->setName($name);
+            }
             public function setName($name) {
                 $this->name = (string)filter_var($name);
             }
@@ -26,13 +29,15 @@
             }
         }
 
-        $a = new Robot;
-        $a->setName('ロボ太郎');
-        $b = new Robot;
-        $b->setName('ロボ太郎');
+        $a = new Robot('ロボ太郎');
+        $b = $a;
 
         echo $a->getName();
         echo $b->getName();
+        
+        $a = new stdClass;
+        $a->name = 'ロボ太郎';
+        echo $a->name;
     ?>
 </div>
 </body>
