@@ -16,28 +16,38 @@
         <button>すでに登録済みの方</button>
     </div>
     <?php
-        class Robot {
-            private $name = '';//privateは外部からのアクセスを全て遮断
-            public function __construct($name) {
-                $this->setName($name);
+        class User
+        {
+            public static $count = 0;
+
+            public $id;
+            public $age;
+            public $name;
+
+            public function __construct($age, $name) {
+                $this->age = $age;
+                $this->name = $name;
+                self::countUp();
             }
-            public function setName($name) {
-                $this->name = (string)filter_var($name);
+
+            public static function countUp()
+            {
+                self::$count++;
             }
-            public function getName() {
-                return $this->name;
+
+            public function selfIntroduction()
+            {
+                echo "My name is $this->name. I am $this->age years old.";
             }
+
         }
 
-        $a = new Robot('ロボ太郎');
-        $b = $a;
+        $user = new User(20, 'hou');
 
-        echo $a->getName();
-        echo $b->getName();
+        echo $user->name;
+        echo $user->selfIntroduction();
         
-        $a = new stdClass;
-        $a->name = 'ロボ太郎';
-        echo $a->name;
+        echo User::$count;
     ?>
 </div>
 </body>
