@@ -18,6 +18,8 @@
     <?php
         class User
         {
+            
+            public const MAX_SCORE = 100;//値を変更したくないときはconstつける
             public static $count = 0;
 
             public $id;
@@ -30,14 +32,15 @@
                 self::countUp();
             }
 
-            public static function countUp()
+            public static function countUp()//クラス中でアクセスする時
             {
                 self::$count++;
             }
-
+            //self 全体統一
             public function selfIntroduction()
             {
                 echo "My name is $this->name. I am $this->age years old.";
+                echo self::$count;//くラス中でアクセスする時 selfをつける
             }
 
         }
@@ -47,7 +50,8 @@
         echo $user->name;
         echo $user->selfIntroduction();
         
-        echo User::$count;
+        echo User::countUp();
+        echo User::MAX_SCORE;
     ?>
 </div>
 </body>
