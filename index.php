@@ -16,6 +16,32 @@
         <button>すでに登録済みの方</button>
     </div>
     <?php
+
+        //継承
+
+        //車の基本クラス
+        class BaseCar
+        {
+            const MANUFACTURE = "∞自動車";
+
+            public function printCar($price) {
+                print("製造元は".self::MANUFACTURE."<br />");
+                print("販売価格は".$price."円<br />");
+            }
+        }
+
+        //新車クラス
+        class NewCar extends BaseCar
+        {
+            public function printNewCar($price) {
+                print("新車です<br />");
+                $this->printCar($price);
+            }
+        }
+
+
+
+
         class User
         {
             
