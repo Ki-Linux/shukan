@@ -25,9 +25,11 @@
             const MANUFACTURE = "∞自動車";
 
             public function printCar($price) {
-                print("製造元は".self::MANUFACTURE."<br />");
+                echo "製造元は".self::MANUFACTURE."<br />";
                 print("販売価格は".$price."円<br />");
             }
+
+            
         }
 
         //新車クラス
@@ -38,6 +40,9 @@
                 $this->printCar($price);
             }
         }
+
+        $NewCar = new BaseCar();
+        $NewCar->printCar();
 
 
 
