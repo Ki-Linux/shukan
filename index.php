@@ -20,29 +20,24 @@
         //継承
 
         //車の基本クラス
-        class BaseCar
+        class BaseClass
         {
-            const MANUFACTURE = "∞自動車";
-
-            public function printCar($price) {
-                echo "製造元は".self::MANUFACTURE."<br />";
-                print("販売価格は".$price."円<br />");
+            public function printItem() {
+                echo "新車です";
             }
-
             
         }
 
         //新車クラス
-        class NewCar extends BaseCar
+        class NewCar extends BaseClass
         {
-            public function printNewCar($price) {
-                print("新車です<br />");
-                $this->printCar($price);
+            public function printItem() {
+                echo "sinです";
             }
         }
 
-        $NewCar = new BaseCar();
-        $NewCar->printCar();
+        $NewCar = new NewCar();
+        $NewCar->printItem();
 
 
 
